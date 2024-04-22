@@ -1,44 +1,46 @@
-# Timestamp Microservice
+## Project Description
 
-This is my Timestamp Microservice Back End Development and APIs Project for freecodecamp.org. I used the provided [boilerplate](https://github.com/freeCodeCamp/boilerplate-project-timestamp/) to complete this challenge. The test requirements can be found [here](https://www.freecodecamp.org/learn/back-end-development-and-apis/back-end-development-and-apis-projects/timestamp-microservice).
+This project is a simple Node.js application designed to serve as an API endpoint for timestamp conversion. It provides functionality to convert Unix timestamps or date strings to Unix time and Coordinated Universal Time (UTC). The API supports both query parameters and URL parameters for date input.
 
-## Table of Contents
+### Features:
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [API Endpoints](#api-endpoints)
-- [License](#license)
+- **Timestamp Conversion**: Convert Unix timestamps or date strings to Unix time and UTC.
+- **API Endpoint**: Exposes an API endpoint `/api/:date?` for timestamp conversion.
+- **Error Handling**: Handles invalid date inputs gracefully and returns an error message.
 
-## Installation
+### How to Use:
 
-1. Clone the repository:
+1. **Accessing the API**: Send GET requests to the `/api/:date?` endpoint, where `:date` is an optional parameter representing the date to be converted.
+2. **Date Input**: Provide either a Unix timestamp or a date string as the value for the `:date` parameter.
+3. **Response Format**: The API returns JSON objects with `unix` and `utc` properties representing the Unix time and UTC respectively. If the input date is invalid, an error message is returned.
 
-```bash
-git clone https://github.com/cnourrcier/fcc-api-timestamp-microservice.git
+### Example Usage:
+
+- Convert Unix timestamp to UTC:
+
+```
+GET /api/1620842400000
+Response: { "unix": 1620842400000, "utc": "Wed, 12 May 2021 18:00:00 GMT" }
 ```
 
-2. Install dependencies:
+- Convert date string to UTC:
 
-```bash
-cd fcc-api-timestamp-microservice
-npm install
+```
+GET /api/2021-05-12
+Response: { "unix": 1620777600000, "utc": "Wed, 12 May 2021 00:00:00 GMT" }
 ```
 
-## Usage
+### Installation:
 
-1. Start the server:
+1. Clone or download the project files from the repository.
+2. Install dependencies using npm: `npm install`
+3. Run the application: `node index.js` or `npm start`
+4. Access the API endpoint in your browser or through a tool like Postman, Thunder Client, or Hoppscotch.io.
 
-```bash
-npm run dev
-```
+### Credits:
 
-## API Endpoints
+This project was created as part of the freeCodeCamp curriculum. Special thanks to the freeCodeCamp community for providing resources and support.
 
-|   Endpoint    |  Description  |
-| ------------- | ------------- |
-| GET /api/{dateParam} | Receive a valid date param and send a json object containing a unix timestamp and UTC date string. If date param is not valid, send an error response. |
+### License:
 
-## License
-
-This project is licensed under the MIT License - see the [MIT License](LICENSE) file for details. 
-
+This project is open-source and available under the [BSD 3-Clause License](LICENSE). Feel free to use, modify, and distribute it according to your needs.
